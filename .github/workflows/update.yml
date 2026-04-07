@@ -1,0 +1,32 @@
+name: 自动更新数字足迹
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # 每 6 小时执行一次
+  workflow_dispatch: # 允许你手动点击一个按钮强制运行测试
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # 允许脚本将新数据写回仓库
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 配置 Python 环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 安装依赖
+        run: pip install feedparser
+
+      - name: 运行抓取脚本
+        run: python fetch_data.py
+
+      - name: 自动提交更新的 data.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 自动更新数字足迹 (GitHub Actions)"
