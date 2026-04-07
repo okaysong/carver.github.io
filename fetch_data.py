@@ -7,7 +7,7 @@ FEEDS = {
     "🎬 电影": "https://rsshub.rssforever.com/imdb/list/ls001577067",
     "📚 阅读": "https://www.goodreads.com/review/list_rss/2055861?key=iyISFZZeSgNPyClqkXkYc75_ToCciDCuQjs4WB2on-6Va1U7&shelf=read",
     "🎵 音乐": "https://rsshub.rssforever.com/lastfm/recent/carver6",
-    "📍 足迹": "https://feeds.foursquare.com/history/369346.rss?signature=rss_16-5805c5050fd378b4845672834f4d4dbc"
+    "📍 足迹": "https://feeds.foursquare.com/history/369346.rss"
 }
 
 timeline = []
