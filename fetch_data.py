@@ -4,9 +4,9 @@ import datetime
 
 # 替换为你之前拼接好的真实 RSS 链接
 FEEDS = {
-    "🎬 电影": "https://rsshub.app/imdb/list/ls001577067",
+    "🎬 电影": "https://rsshub.rssforever.com/imdb/list/ls001577067",
     "📚 阅读": "https://www.goodreads.com/review/list_rss/2055861?key=iyISFZZeSgNPyClqkXkYc75_ToCciDCuQjs4WB2on-6Va1U7&shelf=read",
-    "🎵 音乐": "https://ws.audioscrobbler.com/2.0/user/carver6/recenttracks.rss",
+    "🎵 音乐": "https://rsshub.rssforever.com/lastfm/recent/carver6",
     "📍 足迹": "https://feeds.foursquare.com/history/369346.rss?signature=rss_16-5805c5050fd378b4845672834f4d4dbc"
 }
 
