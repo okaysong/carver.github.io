@@ -7,7 +7,7 @@ FEEDS = {
     "🎬 电影": "https://rsshub.rssforever.com/imdb/list/ls001577067",
     "📚 阅读": "https://www.goodreads.com/review/list_rss/2055861?key=iyISFZZeSgNPyClqkXkYc75_ToCciDCuQjs4WB2on-6Va1U7&shelf=read",
     "🎵 音乐": "https://listenbrainz.org/syndication-feed/user/carver6/listens?minutes=480",
-    "📍 足迹": "https://feeds.foursquare.com/history/369346.rss"
+    "📍 足迹": "https://okay85.blogspot.com/feeds/posts/default?alt=rss"
 }
 
 timeline = []
