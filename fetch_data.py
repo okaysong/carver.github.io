@@ -6,7 +6,7 @@ import datetime
 FEEDS = {
     "🎬 电影": "https://rsshub.app/imdb/list/ls001577067",
     "📚 阅读": "https://www.goodreads.com/review/list_rss/2055861?key=iyISFZZeSgNPyClqkXkYc75_ToCciDCuQjs4WB2on-6Va1U7&shelf=read",
-    "🎵 音乐": "https://ws.audioscrobbler.com/2.0/user/你的ID/recenttracks.rss",
+    "🎵 音乐": "https://ws.audioscrobbler.com/2.0/user/carver6/recenttracks.rss",
     "📍 足迹": "https://feeds.foursquare.com/history/你的ID.rss?signature=你的密钥"
 }
 
