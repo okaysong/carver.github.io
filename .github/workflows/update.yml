@@ -20,10 +20,16 @@ jobs:
         with:
           python-version: '3.10'
 
+      # 👇 合并了依赖包，同时安装 feedparser 和 requests
       - name: 安装依赖
-        run: pip install feedparser
+        run: pip install feedparser requests
 
+      # 👇 带有 Strava 密钥的运行脚本环节
       - name: 运行抓取脚本
+        env: 
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
         run: python fetch_data.py
 
       - name: 自动提交更新的 data.json
