@@ -3,39 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的数字足迹</title>
+    <title>我的数字足迹 | My Life OS</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; background: #f9f9f9; color: #333; }
-        .card { background: white; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .category { font-size: 0.8em; color: #888; text-transform: uppercase; margin-bottom: 5px; }
-        .title a { color: #0366d6; text-decoration: none; font-weight: bold; }
-        .title a:hover { text-decoration: underline; }
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-muted: #636e72;
+            --accent: #0984e3;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        /* 🎛️ 新增：过滤器控制条样式 */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid rgba(0,0,0,0.05);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        /* 鼠标悬浮和选中时的状态 */
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .filter-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        #timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.03);
+            animation: fadeIn 0.4s ease forwards; /* 每次过滤时加入淡入动画 */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .category {
+            font-size: 0.85em;
+            font-weight: 600;
+            background: rgba(9, 132, 227, 0.1);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .time {
+            font-size: 0.8em;
+            color: var(--text-muted);
+        }
+
+        .title {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .title a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .title a:hover {
+            color: var(--accent);
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: var(--text-muted);
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px dashed #eee;
+        }
+
+        .loading, .empty-state {
+            text-align: center;
+            color: var(--text-muted);
+            grid-column: 1 / -1;
+            padding: 40px;
+        }
     </style>
 </head>
 <body>
     <h1>🌟 我的数字生活仪表盘</h1>
-    <div id="timeline">加载中...</div>
+    
+    <div id="filter-container" class="filter-bar"></div>
+    
+    <div id="timeline"><div class="loading">正在同步宇宙信号... 📡</div></div>
 
     <script>
-        // 前端自动拉取最新的 JSON 数据并渲染
+        let allData = []; // 声明一个全局变量，用来存我们拉下来的所有数据
+
+        function formatDate(isoString) {
+            if (!isoString) return '';
+            const date = new Date(isoString);
+            return `${date.getMonth() + 1}月${date.getDate()}日 ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+        }
+
+        // 🛠️ 渲染过滤按钮的功能
+        function renderFilters() {
+            const filterContainer = document.getElementById('filter-container');
+            filterContainer.innerHTML = ''; // 清空
+
+            // 1. 从数据中提取出所有不重复的 category (利用 Set 自动去重)
+            const categories = ['全部', ...new Set(allData.map(item => item.category))];
+
+            // 2. 循环生成按钮
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                if (cat === '全部') btn.classList.add('active'); // 默认选中"全部"
+                btn.innerText = cat;
+                
+                // 3. 绑定点击事件
+                btn.onclick = () => {
+                    // 切换按钮的 active 样式
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    // 触发数据重新渲染
+                    renderTimeline(cat);
+                };
+                
+                filterContainer.appendChild(btn);
+            });
+        }
+
+        // 🛠️ 渲染时间线的功能 (带过滤逻辑)
+        function renderTimeline(filterCategory) {
+            const container = document.getElementById('timeline');
+            container.innerHTML = ''; 
+
+            // 如果选了"全部"，就用所有数据；否则只过滤出匹配的数据
+            const displayData = filterCategory === '全部' 
+                ? allData 
+                : allData.filter(item => item.category === filterCategory);
+
+            if (displayData.length === 0) {
+                container.innerHTML = '<div class="empty-state">这个分类下还没有数据哦 📭</div>';
+                return;
+            }
+
+            // 生成卡片
+            displayData.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'card';
+                const noteHtml = item.note ? `<div class="note">${item.note}</div>` : '';
+                
+                div.innerHTML = `
+                    <div class="card-header">
+                        <span class="category">${item.category}</span>
+                        <span class="time">${formatDate(item.time)}</span>
+                    </div>
+                    <div class="title"><a href="${item.link}" target="_blank">${item.title}</a></div>
+                    ${noteHtml}
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // 🚀 主程序：获取数据并初始化
         fetch('data.json')
             .then(response => response.json())
             .then(data => {
-                const container = document.getElementById('timeline');
-                container.innerHTML = ''; // 清空加载提示
-                
-                data.forEach(item => {
-                    const div = document.createElement('div');
-                    div.className = 'card';
-                    div.innerHTML = `
-                        <div class="category">${item.category}</div>
-                        <div class="title"><a href="${item.link}" target="_blank">${item.title}</a></div>
-                    `;
-                    container.appendChild(div);
-                });
+                allData = data; // 把数据存进全局变量
+                renderFilters(); // 马上渲染按钮
+                renderTimeline('全部'); // 默认显示全部
             })
             .catch(error => {
-                document.getElementById('timeline').innerHTML = '数据加载失败。';
+                document.getElementById('timeline').innerHTML = '<div class="loading">获取数据失败，请检查网络 ❌</div>';
             });
     </script>
 </body>
