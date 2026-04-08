@@ -3,12 +3,13 @@ import feedparser
 import json
 import datetime
 import requests
+import re  # 👇 新增：引入正则表达式库，用来“提取”地图链接和清理内容
 
 # ==========================================
 # 1. 基础 RSS 抓取模块 (电影、阅读、音乐、足迹)
 # ==========================================
 FEEDS = {
-    "🎬 电影": "https://rsshub.rssforever.com/imdb/list/ls001577067", # 如果报错可以考虑换成 Letterboxd
+    "🎬 电影": "https://rsshub.rssforever.com/imdb/list/ls001577067",
     "📚 阅读": "https://www.goodreads.com/review/list_rss/2055861?key=iyISFZZeSgNPyClqkXkYc75_ToCciDCuQjs4WB2on-6Va1U7&shelf=read",
     "🎵 音乐": "https://listenbrainz.org/syndication-feed/user/carver6/listens?minutes=480",
     "📍 足迹": "https://okay85.blogspot.com/feeds/posts/default?alt=rss"
@@ -20,13 +21,29 @@ for category, url in FEEDS.items():
     try:
         feed = feedparser.parse(url)
         for entry in feed.entries[:5]:
-            # 兼容处理正文内容
-            note_text = entry.get('summary', '').replace('<br>', '').replace('<br />', '').strip()
+            raw_summary = entry.get('summary', '')
+            item_link = entry.link # 默认的跳转链接（通常是该平台自己的网页）
+            
+            # 🎯 足迹专属魔法：拦截并提取真实的地图链接
+            if category == "📍 足迹":
+                # 使用正则扫描正文里所有的网址 (http/https开头)
+                urls = re.findall(r'(https?://[^\s<"\'>]+)', raw_summary)
+                for u in urls:
+                    # 只要不是 Blogger 自身的内部链接，就认为它是地图链接！
+                    if 'blogspot.com' not in u and 'blogger.com' not in u:
+                        item_link = u # 偷天换日：用地图链接替换原来的博客链接
+                        break
+            
+            # 🧹 视觉清理魔法：
+            # 1. 删掉乱七八糟的 HTML 标签
+            note_text = re.sub(r'<[^>]+>', ' ', raw_summary) 
+            # 2. 既然标题已经能跳转地图了，就把正文里那串长长的网址抹掉，只保留你的“文字碎碎念”
+            note_text = re.sub(r'https?://[^\s]+', '', note_text).strip()
             
             timeline.append({
                 "category": category,
                 "title": entry.title,
-                "link": entry.link,
+                "link": item_link,  # 👈 现在这里已经是真实的地图链接了！
                 "time": entry.get('published', datetime.datetime.now().isoformat()),
                 "note": note_text
             })
@@ -44,7 +61,6 @@ STRAVA_REFRESH_TOKEN = os.environ.get('STRAVA_REFRESH_TOKEN')
 if STRAVA_CLIENT_ID and STRAVA_CLIENT_SECRET and STRAVA_REFRESH_TOKEN:
     try:
         print("🏃‍♂️ 正在连接 Strava...")
-        # 步骤 A：用 Refresh Token 换取最新的通行证 (Access Token)
         auth_url = "https://www.strava.com/oauth/token"
         payload = {
             'client_id': STRAVA_CLIENT_ID,
@@ -55,18 +71,14 @@ if STRAVA_CLIENT_ID and STRAVA_CLIENT_SECRET and STRAVA_REFRESH_TOKEN:
         res = requests.post(auth_url, data=payload)
         access_token = res.json().get('access_token')
 
-        # 步骤 B：用通行证去获取最近的 5 次运动记录
         activities_url = "https://www.strava.com/api/v3/athlete/activities?per_page=5"
         headers = {'Authorization': f'Bearer {access_token}'}
         act_res = requests.get(activities_url, headers=headers)
         activities = act_res.json()
 
         for act in activities:
-            # 计算距离 (千米) 和时间 (分钟)
             distance_km = act['distance'] / 1000
             moving_time_mins = act['moving_time'] // 60
-            
-            # 判断运动类型，给个好看的 emoji
             sport_type = "🏃‍♂️ 跑步" if act['sport_type'] == 'Run' else ("🚴‍♂️ 骑行" if act['sport_type'] == 'Ride' else "⛰️ 徒步/健走")
             
             timeline.append({
@@ -85,7 +97,6 @@ else:
 # ==========================================
 # 3. 排序并保存数据
 # ==========================================
-# 按照时间从新到旧排序
 timeline.sort(key=lambda x: x['time'], reverse=True)
 
 with open('data.json', 'w', encoding='utf-8') as f:
