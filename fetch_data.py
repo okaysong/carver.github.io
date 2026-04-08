@@ -37,7 +37,7 @@ try:
     
     if res.status_code == 200:
         movies = res.json()
-        for movie in movies[:1000]:
+        for movie in movies[:10]:
             imdb_id = movie.get('imdb_id', '')
             item_link = f"https://www.imdb.com/title/{imdb_id}/" if imdb_id else mdb_url
             title = movie.get('title', '未知电影')
@@ -77,7 +77,7 @@ for category, url in RSS_FEEDS.items():
         
         feed = feedparser.parse(res.content)
         
-        for entry in feed.entries[:200]:
+        for entry in feed.entries[:10]:
             raw_summary = entry.get('summary', '')
             item_link = entry.link 
             title = entry.title
