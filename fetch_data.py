@@ -94,14 +94,21 @@ for category, url in RSS_FEEDS.items():
             if fp in existing_fingerprints:
                 continue
 
-            note_text = re.sub(r'<[^>]+>', ' ', raw_summary) 
+note_text = re.sub(r'<[^>]+>', ' ', raw_summary) 
             note_text = re.sub(r'https?://[^\s]+', '', note_text).strip()
+            
+            # 👇 新增魔法：强行把所有奇葩时间格式翻译成标准的 ISO 8601 格式
+            parsed_time = entry.get('published_parsed') or entry.get('updated_parsed')
+            if parsed_time:
+                final_time = datetime.datetime(*parsed_time[:6]).isoformat()
+            else:
+                final_time = datetime.datetime.now().isoformat()
             
             timeline.append({
                 "category": category,
                 "title": title,
                 "link": item_link, 
-                "time": entry.get('published', datetime.datetime.now().isoformat()),
+                "time": final_time, # 👈 使用翻译后的标准时间
                 "note": note_text
             })
             existing_fingerprints.add(fp)
