@@ -252,10 +252,14 @@
             });
         }
 
-        // 🚀 主程序：获取数据并初始化
+// 🚀 主程序：获取数据并初始化
         fetch('data.json')
             .then(response => response.json())
             .then(data => {
+                
+                // 🛠️ 降维打击魔法：不管 JSON 里的时间格式多奇葩，强制转换为绝对时间进行重排！
+                data.sort((a, b) => new Date(b.time + (!b.time.endsWith('Z') ? 'Z' : '')) - new Date(a.time + (!a.time.endsWith('Z') ? 'Z' : '')));
+
                 allData = data; // 把数据存进全局变量
                 renderFilters(); // 马上渲染按钮
                 renderTimeline('全部'); // 默认显示全部
