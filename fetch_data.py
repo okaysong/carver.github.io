@@ -48,7 +48,8 @@ try:
                     "category": "🎬 电影",
                     "title": title,
                     "link": item_link,
-                    "time": datetime.datetime.now().isoformat(),
+                    # 👇 强制使用 UTC 时间并加上 Z 尾缀
+                    "time": datetime.datetime.utcnow().isoformat() + "Z",
                     "note": f"上映年份: {movie.get('year', '未知')} | 评分: {movie.get('score', '暂无')}"
                 })
                 existing_fingerprints.add(fp)
@@ -93,16 +94,15 @@ for category, url in RSS_FEEDS.items():
             if fp in existing_fingerprints:
                 continue
 
-            # 👇 这里的缩进已经完美修复
             note_text = re.sub(r'<[^>]+>', ' ', raw_summary) 
             note_text = re.sub(r'https?://[^\s]+', '', note_text).strip()
             
-            # 👇 时间翻译魔法
+            # 👇 时间翻译魔法：强制转为标准 UTC 格式并带上 Z
             parsed_time = entry.get('published_parsed') or entry.get('updated_parsed')
             if parsed_time:
-                final_time = datetime.datetime(*parsed_time[:6]).isoformat()
+                final_time = datetime.datetime(*parsed_time[:6]).isoformat() + "Z"
             else:
-                final_time = datetime.datetime.now().isoformat()
+                final_time = datetime.datetime.utcnow().isoformat() + "Z"
             
             timeline.append({
                 "category": category,
@@ -159,7 +159,7 @@ if STRAVA_CLIENT_ID and STRAVA_CLIENT_SECRET and STRAVA_REFRESH_TOKEN:
                 "category": sport_type,
                 "title": title,
                 "link": act_link,
-                "time": act['start_date'],
+                "time": act['start_date'], # Strava 官方 API 已经自带 Z 了，无需修改
                 "note": f"距离: {distance_km:.2f} km | 耗时: {moving_time_mins} 分钟"
             })
             existing_fingerprints.add(fp)
