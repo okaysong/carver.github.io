@@ -157,10 +157,11 @@
     <script>
         let allData = []; // 声明一个全局变量，用来存我们拉下来的所有数据
 
+// 🕰️ 自动将乱码一样的服务器时间转换成 "YYYY年M月D日 HH:MM"
         function formatDate(isoString) {
             if (!isoString) return '';
             const date = new Date(isoString);
-            return `${date.getMonth() + 1}月${date.getDate()}日 ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+            return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日 ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
         }
 
         // 🛠️ 渲染过滤按钮的功能
