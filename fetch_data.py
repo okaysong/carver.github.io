@@ -9,20 +9,21 @@ import re
 # 0. 核心升级：读取历史档案，建立去重数据库
 # ==========================================
 timeline = []
-existing_links = set() # 用来记录已经存过的“指纹”
+existing_fingerprints = set() # 🌟 升级：用“分类+标题+链接”做超级指纹
 
-# 检查是否存在历史数据文件
 if os.path.exists('data.json'):
     try:
         with open('data.json', 'r', encoding='utf-8') as f:
             timeline = json.load(f)
-        # 提取所有已存在的链接，用作“指纹”防伪验证
-        existing_links = {item.get('link', '') for item in timeline if 'link' in item}
+        for item in timeline:
+            # 提取已有的超级指纹防重
+            fp = f"{item.get('category', '')}_{item.get('title', '')}_{item.get('link', '')}"
+            existing_fingerprints.add(fp)
         print(f"📦 成功读取历史档案，当前已累计 {len(timeline)} 条记录。")
     except Exception as e:
-        print(f"⚠️ 读取历史数据失败，将创建新档案: {e}")
+        print(f"⚠️ 读取历史数据失败: {e}")
 
-new_items_count = 0  # 记录这次新增了多少条
+new_items_count = 0
 
 # ==========================================
 # 1. 🎬 MDbList 电影专属抓取模块 (API 模式)
@@ -30,31 +31,27 @@ new_items_count = 0  # 记录这次新增了多少条
 print("🎬 正在同步 MDbList 电影数据...")
 try:
     mdb_url = "https://mdblist.com/lists/carver.song/external/125740"
-    # MDbList 极客小技巧：在普通网页链接末尾加上 /json 就能直接调出干净的 API 数据
     api_url = mdb_url if mdb_url.endswith('json') else mdb_url + "/json"
-    
     headers = {'User-Agent': 'Mozilla/5.0'}
     res = requests.get(api_url, headers=headers)
     
     if res.status_code == 200:
         movies = res.json()
-        # 遍历列表里最新添加的 5 部电影
         for movie in movies[:5]:
             imdb_id = movie.get('imdb_id', '')
-            # 如果有 IMDb ID，就拼装出真实的 IMDb 网页链接
             item_link = f"https://www.imdb.com/title/{imdb_id}/" if imdb_id else mdb_url
+            title = movie.get('title', '未知电影')
             
-            # 🔮 去重核心：如果这部电影已经在档案里了，就跳过！
-            if item_link not in existing_links:
+            fp = f"🎬 电影_{title}_{item_link}"
+            if fp not in existing_fingerprints:
                 timeline.append({
                     "category": "🎬 电影",
-                    "title": movie.get('title', '未知电影'),
+                    "title": title,
                     "link": item_link,
-                    # MDbList 接口通常不带收藏时间，我们用抓取的当前时间作为时间戳
                     "time": datetime.datetime.now().isoformat(),
                     "note": f"上映年份: {movie.get('year', '未知')} | 评分: {movie.get('score', '暂无')}"
                 })
-                existing_links.add(item_link)
+                existing_fingerprints.add(fp)
                 new_items_count += 1
         print("✅ 成功抓取: MDbList 电影")
     else:
@@ -73,12 +70,18 @@ RSS_FEEDS = {
 
 for category, url in RSS_FEEDS.items():
     try:
-        feed = feedparser.parse(url)
+        # 🚀 突破反爬虫限制：用伪装成 Chrome 浏览器的 requests 去拿数据
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+        res = requests.get(url, headers=headers, timeout=15)
+        
+        # 把拿到的安全内容喂给 feedparser
+        feed = feedparser.parse(res.content)
+        
         for entry in feed.entries[:5]:
             raw_summary = entry.get('summary', '')
             item_link = entry.link 
+            title = entry.title
             
-            # 足迹提取真实地图链接逻辑
             if category == "📍 足迹":
                 urls = re.findall(r'(https?://[^\s<"\'>]+)', raw_summary)
                 for u in urls:
@@ -86,8 +89,9 @@ for category, url in RSS_FEEDS.items():
                         item_link = u 
                         break
             
-            # 🔮 去重核心：重复的文章或音乐，一律拦截跳过
-            if item_link in existing_links:
+            # 🔮 生成超级指纹防重
+            fp = f"{category}_{title}_{item_link}"
+            if fp in existing_fingerprints:
                 continue
 
             note_text = re.sub(r'<[^>]+>', ' ', raw_summary) 
@@ -95,12 +99,12 @@ for category, url in RSS_FEEDS.items():
             
             timeline.append({
                 "category": category,
-                "title": entry.title,
+                "title": title,
                 "link": item_link, 
                 "time": entry.get('published', datetime.datetime.now().isoformat()),
                 "note": note_text
             })
-            existing_links.add(item_link)
+            existing_fingerprints.add(fp)
             new_items_count += 1
             
         print(f"✅ 成功抓取: {category}")
@@ -134,23 +138,24 @@ if STRAVA_CLIENT_ID and STRAVA_CLIENT_SECRET and STRAVA_REFRESH_TOKEN:
 
         for act in activities:
             act_link = f"https://www.strava.com/activities/{act['id']}"
+            title = act['name']
+            sport_type = "🏃‍♂️ 跑步" if act['sport_type'] == 'Run' else ("🚴‍♂️ 骑行" if act['sport_type'] == 'Ride' else "⛰️ 徒步/健走")
             
-            # 🔮 去重核心：这条跑步记录存过了吗？
-            if act_link in existing_links:
+            fp = f"{sport_type}_{title}_{act_link}"
+            if fp in existing_fingerprints:
                 continue
 
             distance_km = act['distance'] / 1000
             moving_time_mins = act['moving_time'] // 60
-            sport_type = "🏃‍♂️ 跑步" if act['sport_type'] == 'Run' else ("🚴‍♂️ 骑行" if act['sport_type'] == 'Ride' else "⛰️ 徒步/健走")
             
             timeline.append({
                 "category": sport_type,
-                "title": act['name'],
+                "title": title,
                 "link": act_link,
                 "time": act['start_date'],
                 "note": f"距离: {distance_km:.2f} km | 耗时: {moving_time_mins} 分钟"
             })
-            existing_links.add(act_link)
+            existing_fingerprints.add(fp)
             new_items_count += 1
         print("✅ Strava 运动数据同步完成！")
     except Exception as e:
@@ -159,12 +164,11 @@ else:
     print("⚠️ 未找到 Strava 密钥，已跳过运动抓取。")
 
 # ==========================================
-# 4. 全局排序并保存档案 (滚雪球机制)
+# 4. 全局排序并保存档案
 # ==========================================
-# 不管是旧档案还是刚抓的新动态，统统按时间重新排队
 timeline.sort(key=lambda x: x['time'], reverse=True)
 
 with open('data.json', 'w', encoding='utf-8') as f:
     json.dump(timeline, f, ensure_ascii=False, indent=2)
     
-print(f"🎉 档案更新完毕！本次共新增 {new_items_count} 条记录，个人数据库总计容量: {len(timeline)} 条。")
+print(f"🎉 档案更新完毕！本次共新增 {new_items_count} 条记录。")
