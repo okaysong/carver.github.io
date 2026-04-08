@@ -23,7 +23,17 @@ for category, url in FEEDS.items():
             # 如果没有时间戳，默认用当前时间
             "time": entry.get('published', datetime.datetime.now().isoformat()) 
         })
-
+- name: 运行抓取脚本
+        env: 
+          # 之前的 Trello 密钥（如果你还在用的话）
+          # TRELLO_KEY: ${{ secrets.TRELLO_KEY }}
+          # TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+          
+          # 👇 新增：将 Strava 密钥传给 Python
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+        run: python fetch_data.py
 # 将抓取到的数据写入 data.json 文件
 with open('data.json', 'w', encoding='utf-8') as f:
     json.dump(timeline, f, ensure_ascii=False, indent=2)
