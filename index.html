@@ -160,9 +160,15 @@
 // 🕰️ 强制锁定并格式化为东八区（UTC+8）时间
         function formatDate(isoString) {
             if (!isoString) return '';
-            const date = new Date(isoString);
             
-            // 极客魔法：使用 Intl 接口，无论你在世界上哪个角落（或是否挂着 VPN），强制按照东八区计算时间
+            // 🔧 极客补丁：如果 Python 传过来的时间没有带时区尾巴(Z)，我们强行给它贴上 UTC 的标签
+            let timeToParse = isoString;
+            if (!timeToParse.endsWith('Z') && !timeToParse.includes('+')) {
+                timeToParse += 'Z'; 
+            }
+            
+            const date = new Date(timeToParse);
+            
             const options = {
                 timeZone: 'Asia/Shanghai', 
                 year: 'numeric', 
@@ -172,6 +178,11 @@
                 minute: '2-digit', 
                 hour12: false
             };
+            
+            let timeString = new Intl.DateTimeFormat('zh-CN', options).format(date);
+            
+            return `${timeString} (UTC+8)`;
+        }
             
             // 浏览器会原生地生成类似 "2026年4月8日 12:59" 的中文字符串
             let timeString = new Intl.DateTimeFormat('zh-CN', options).format(date);
