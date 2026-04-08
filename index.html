@@ -154,7 +154,7 @@
             margin-top: auto;
             padding-top: 15px;
             border-top: 1px dashed var(--card-border);
-            white-space: pre-wrap; /* 保持段落换行 */
+            white-space: pre-wrap;
         }
 
         .loading, .empty-state {
@@ -172,8 +172,8 @@
     
     <div id="timeline"><div class="loading">正在同步宇宙信号... 📡</div></div>
 
-<scipt>
-    let allData = [];
+    <script>
+        let allData = [];
 
         // 🕰️ 锁定并格式化为东八区时间 (带历史数据兼容补丁)
         function formatDate(isoString) {
@@ -292,7 +292,6 @@
             .catch(error => {
                 document.getElementById('timeline').innerHTML = '<div class="loading">获取数据失败，请检查网络 ❌</div>';
             });
-</scipt>
-    
+    </script>
 </body>
 </html>
