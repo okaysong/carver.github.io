@@ -172,15 +172,20 @@
     
     <div id="timeline"><div class="loading">正在同步宇宙信号... 📡</div></div>
 
-    <script>
-        let allData = [];
+<scipt>
+    let allData = [];
 
-        // 🕰️ 锁定并格式化为东八区时间
+        // 🕰️ 锁定并格式化为东八区时间 (带历史数据兼容补丁)
         function formatDate(isoString) {
             if (!isoString) return '';
             
-            // 因为现在 Python 已经非常靠谱地带上了 Z，我们直接解析就行了
-            const date = new Date(isoString);
+            // 🔧 兼容补丁：如果历史数据没带 Z 且没有时区偏移(+)，强制当做 UTC (Z) 处理
+            let timeToParse = isoString;
+            if (!timeToParse.endsWith('Z') && !timeToParse.includes('+')) {
+                timeToParse += 'Z'; 
+            }
+            
+            const date = new Date(timeToParse);
             
             const options = {
                 timeZone: 'Asia/Shanghai', 
@@ -201,7 +206,6 @@
             if (!rawNote) return '';
             
             if (category === '📚 阅读') {
-                // 尝试提取作者、评分、出版年份等核心信息
                 let author = rawNote.match(/author:\s*(.*?)\s*name:/) ? rawNote.match(/author:\s*(.*?)\s*name:/)[1] : '';
                 let rating = rawNote.match(/average rating:\s*([\d.]+)/) ? rawNote.match(/average rating:\s*([\d.]+)/)[1] : '';
                 let year = rawNote.match(/book published:\s*(\d+)/) ? rawNote.match(/book published:\s*(\d+)/)[1] : '';
@@ -256,7 +260,6 @@
                 const div = document.createElement('div');
                 div.className = 'card';
                 
-                // 使用魔法净化器处理 note 内容
                 const cleanedNote = cleanNote(item.category, item.note);
                 const noteHtml = cleanedNote ? `<div class="note">${cleanedNote}</div>` : '';
                 
@@ -275,8 +278,12 @@
         fetch('data.json')
             .then(response => response.json())
             .then(data => {
-                // 再次降维打击：基于标准时间进行极度精确的倒序排列
-                data.sort((a, b) => new Date(b.time) - new Date(a.time));
+                // 🔧 排序补丁：排序时同样要处理历史数据的时区缺失问题
+                data.sort((a, b) => {
+                    let timeA = a.time + (!a.time.endsWith('Z') && !a.time.includes('+') ? 'Z' : '');
+                    let timeB = b.time + (!b.time.endsWith('Z') && !b.time.includes('+') ? 'Z' : '');
+                    return new Date(timeB) - new Date(timeA);
+                });
 
                 allData = data; 
                 renderFilters(); 
@@ -285,6 +292,7 @@
             .catch(error => {
                 document.getElementById('timeline').innerHTML = '<div class="loading">获取数据失败，请检查网络 ❌</div>';
             });
-    </script>
+</scipt>
+    
 </body>
 </html>
