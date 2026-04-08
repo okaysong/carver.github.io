@@ -1,6 +1,321 @@
 [
   {
     "category": "🎬 电影",
+    "title": "The Lord of the Rings: The Two Towers",
+    "link": "https://www.imdb.com/title/tt0167261/",
+    "time": "2026-04-08T07:00:53.411379Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "One Flew Over the Cuckoo's Nest",
+    "link": "https://www.imdb.com/title/tt0073486/",
+    "time": "2026-04-08T07:00:53.411377Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "2001: A Space Odyssey",
+    "link": "https://www.imdb.com/title/tt0062622/",
+    "time": "2026-04-08T07:00:53.411375Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Aliens",
+    "link": "https://www.imdb.com/title/tt0090605/",
+    "time": "2026-04-08T07:00:53.411371Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Guardians of the Galaxy",
+    "link": "https://www.imdb.com/title/tt2015381/",
+    "time": "2026-04-08T07:00:53.411369Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "The Dark Knight Rises",
+    "link": "https://www.imdb.com/title/tt1345836/",
+    "time": "2026-04-08T07:00:53.411367Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "The Truman Show",
+    "link": "https://www.imdb.com/title/tt0120382/",
+    "time": "2026-04-08T07:00:53.411365Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Harry Potter and the Goblet of Fire",
+    "link": "https://www.imdb.com/title/tt0330373/",
+    "time": "2026-04-08T07:00:53.411363Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Tenet",
+    "link": "https://www.imdb.com/title/tt6723592/",
+    "time": "2026-04-08T07:00:53.411361Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Léon: The Professional",
+    "link": "https://www.imdb.com/title/tt0110413/",
+    "time": "2026-04-08T07:00:53.411357Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Twilight",
+    "link": "https://www.imdb.com/title/tt1099212/",
+    "time": "2026-04-08T07:00:53.411355Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "The Bad Guys 2",
+    "link": "https://www.imdb.com/title/tt30017619/",
+    "time": "2026-04-08T07:00:53.411351Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Shōgun",
+    "link": "https://www.imdb.com/title/tt2788316/",
+    "time": "2026-04-08T07:00:53.411349Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+    "link": "https://www.imdb.com/title/tt0325980/",
+    "time": "2026-04-08T07:00:53.411348Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Alien",
+    "link": "https://www.imdb.com/title/tt0078748/",
+    "time": "2026-04-08T07:00:53.411346Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Titanic",
+    "link": "https://www.imdb.com/title/tt0120338/",
+    "time": "2026-04-08T07:00:53.411344Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Arrival",
+    "link": "https://www.imdb.com/title/tt2543164/",
+    "time": "2026-04-08T07:00:53.411342Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "The Lord of the Rings: The Return of the King",
+    "link": "https://www.imdb.com/title/tt0167260/",
+    "time": "2026-04-08T07:00:53.411340Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Forrest Gump",
+    "link": "https://www.imdb.com/title/tt0109830/",
+    "time": "2026-04-08T07:00:53.411336Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Avatar: The Way of Water",
+    "link": "https://www.imdb.com/title/tt1630029/",
+    "time": "2026-04-08T07:00:53.411332Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Prison Break",
+    "link": "https://www.imdb.com/title/tt0455275/",
+    "time": "2026-04-08T07:00:53.411330Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Zootopia",
+    "link": "https://www.imdb.com/title/tt2948356/",
+    "time": "2026-04-08T07:00:53.411328Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Blade Runner 2049",
+    "link": "https://www.imdb.com/title/tt1856101/",
+    "time": "2026-04-08T07:00:53.411326Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Alien: Romulus",
+    "link": "https://www.imdb.com/title/tt18412256/",
+    "time": "2026-04-08T07:00:53.411324Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Schindler's List",
+    "link": "https://www.imdb.com/title/tt0108052/",
+    "time": "2026-04-08T07:00:53.411320Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Avatar",
+    "link": "https://www.imdb.com/title/tt0499549/",
+    "time": "2026-04-08T07:00:53.411318Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "No Country for Old Men",
+    "link": "https://www.imdb.com/title/tt0477348/",
+    "time": "2026-04-08T07:00:53.411316Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Parasite",
+    "link": "https://www.imdb.com/title/tt6751668/",
+    "time": "2026-04-08T07:00:53.411314Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Heat",
+    "link": "https://www.imdb.com/title/tt0113277/",
+    "time": "2026-04-08T07:00:53.411310Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Jurassic World Rebirth",
+    "link": "https://www.imdb.com/title/tt31036941/",
+    "time": "2026-04-08T07:00:53.411308Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "The Wolf of Wall Street",
+    "link": "https://www.imdb.com/title/tt0993846/",
+    "time": "2026-04-08T07:00:53.411306Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Oppenheimer",
+    "link": "https://www.imdb.com/title/tt15398776/",
+    "time": "2026-04-08T07:00:53.411305Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Lost",
+    "link": "https://www.imdb.com/title/tt0411008/",
+    "time": "2026-04-08T07:00:53.411303Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "The Martian",
+    "link": "https://www.imdb.com/title/tt3659388/",
+    "time": "2026-04-08T07:00:53.411301Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Dune",
+    "link": "https://www.imdb.com/title/tt1160419/",
+    "time": "2026-04-08T07:00:53.411299Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "link": "https://www.imdb.com/title/tt0120737/",
+    "time": "2026-04-08T07:00:53.411296Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Harry Potter and the Philosopher's Stone",
+    "link": "https://www.imdb.com/title/tt0241527/",
+    "time": "2026-04-08T07:00:53.411292Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Dune: Part Two",
+    "link": "https://www.imdb.com/title/tt15239678/",
+    "time": "2026-04-08T07:00:53.411290Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Inception",
+    "link": "https://www.imdb.com/title/tt1375666/",
+    "time": "2026-04-08T07:00:53.411288Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Chernobyl",
+    "link": "https://www.imdb.com/title/tt7366338/",
+    "time": "2026-04-08T07:00:53.411286Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "The Godfather",
+    "link": "https://www.imdb.com/title/tt0068646/",
+    "time": "2026-04-08T07:00:53.411283Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Black Mirror",
+    "link": "https://www.imdb.com/title/tt2085059/",
+    "time": "2026-04-08T07:00:53.411278Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "The Shawshank Redemption",
+    "link": "https://www.imdb.com/title/tt0111161/",
+    "time": "2026-04-08T07:00:53.411276Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "The Walking Dead",
+    "link": "https://www.imdb.com/title/tt1520211/",
+    "time": "2026-04-08T07:00:53.411273Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
+    "title": "Interstellar",
+    "link": "https://www.imdb.com/title/tt0816692/",
+    "time": "2026-04-08T07:00:53.411254Z",
+    "note": "上映年份: 未知 | 评分: 暂无"
+  },
+  {
+    "category": "🎬 电影",
     "title": "Zootopia 2",
     "link": "https://www.imdb.com/title/tt26443597/",
     "time": "2026-04-08T06:48:03.713663Z",
@@ -103,5 +418,320 @@
     "link": "https://www.goodreads.com/review/show/1626952150?utm_medium=api&utm_source=rss",
     "time": "2025-08-18T05:58:47Z",
     "note": "author: Peter Thiel \n                                      name: Carver \n                                      average rating: 3.93 \n                                      book published: 2014 \n                                      rating: 0 \n                                      read at: 2018/05/09 \n                                      date added: 2025/08/17 \n                                      shelves: 1-free, 2-ebook \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "财务自由之路",
+    "link": "https://www.goodreads.com/review/show/2626075600?utm_medium=api&utm_source=rss",
+    "time": "2025-08-18T05:58:32Z",
+    "note": "author: 博多·舍费尔 \n                                      name: Carver \n                                      average rating: 4.03 \n                                      book published:  \n                                      rating: 0 \n                                      read at: 2018/12/12 \n                                      date added: 2025/08/17 \n                                      shelves: 1-free, 2-ebook \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "原则",
+    "link": "https://www.goodreads.com/review/show/4335422278?utm_medium=api&utm_source=rss",
+    "time": "2025-08-18T05:58:25Z",
+    "note": "author: Ray Dalio \n                                      name: Carver \n                                      average rating: 4.11 \n                                      book published: 2017 \n                                      rating: 0 \n                                      read at: 2018/11/13 \n                                      date added: 2025/08/17 \n                                      shelves: 1-free, 2-ebook \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "上瘾",
+    "link": "https://www.goodreads.com/review/show/3040824784?utm_medium=api&utm_source=rss",
+    "time": "2025-08-18T05:57:53Z",
+    "note": "author: Nir   Eyal \n                                      name: Carver \n                                      average rating: 4.33 \n                                      book published: 2013 \n                                      rating: 0 \n                                      read at: 2019/11/08 \n                                      date added: 2025/08/17 \n                                      shelves: 2-weixin, 1-free \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "白垩纪往事",
+    "link": "https://www.goodreads.com/review/show/4335404321?utm_medium=api&utm_source=rss",
+    "time": "2025-08-18T05:57:40Z",
+    "note": "author: Liu Cixin \n                                      name: Carver \n                                      average rating: 4.25 \n                                      book published: 2004 \n                                      rating: 0 \n                                      read at: 2019/11/15 \n                                      date added: 2025/08/17 \n                                      shelves: 1-free, 2-ebook \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "乡村教师 : 刘慈欣科幻自选集",
+    "link": "https://www.goodreads.com/review/show/3203026806?utm_medium=api&utm_source=rss",
+    "time": "2025-08-18T05:57:31Z",
+    "note": "author: Liu Cixin \n                                      name: Carver \n                                      average rating: 4.35 \n                                      book published:  \n                                      rating: 0 \n                                      read at: 2020/02/23 \n                                      date added: 2025/08/17 \n                                      shelves: 2-ebook, 1-free \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "球状闪电",
+    "link": "https://www.goodreads.com/review/show/3844765228?utm_medium=api&utm_source=rss",
+    "time": "2025-08-18T05:57:12Z",
+    "note": "author: Liu Cixin \n                                      name: Carver \n                                      average rating: 4.10 \n                                      book published: 2004 \n                                      rating: 0 \n                                      read at: 2021/02/17 \n                                      date added: 2025/08/17 \n                                      shelves: 2-ebook, 1-free \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "上班記",
+    "link": "https://www.goodreads.com/review/show/5095929045?utm_medium=api&utm_source=rss",
+    "time": "2025-08-18T04:11:14Z",
+    "note": "author: 何兆武 \n                                      name: Carver \n                                      average rating: 4.70 \n                                      book published:  \n                                      rating: 0 \n                                      read at: 2022/10/30 \n                                      date added: 2025/08/17 \n                                      shelves: 2-ebook, 1-free \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "博弈论(一切博弈论的源起之作) (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/5095963307?utm_medium=api&utm_source=rss",
+    "time": "2025-08-18T04:10:14Z",
+    "note": "author: 约翰·冯·诺依曼 \n                                      name: Carver \n                                      average rating: 4.12 \n                                      book published:  \n                                      rating: 0 \n                                      read at: 2023/12/30 \n                                      date added: 2025/08/17 \n                                      shelves: 2-weixin, 1-pay \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "单向街 (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/6694230569?utm_medium=api&utm_source=rss",
+    "time": "2025-08-18T04:09:17Z",
+    "note": "author: 本雅明 \n                                      name: Carver \n                                      average rating: 4.00 \n                                      book published:  \n                                      rating: 0 \n                                      read at: 2024/07/23 \n                                      date added: 2025/08/17 \n                                      shelves: 2-weixin, 1-free \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "九人：美国最高法院风云",
+    "link": "https://www.goodreads.com/review/show/5095960967?utm_medium=api&utm_source=rss",
+    "time": "2025-08-18T04:09:14Z",
+    "note": "author: Jeffrey Toobin \n                                      name: Carver \n                                      average rating: 3.90 \n                                      book published: 2007 \n                                      rating: 0 \n                                      read at: 2024/12/17 \n                                      date added: 2025/08/17 \n                                      shelves: 2-weixin, 1-free \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "神们自己：关于平行宇宙的一切",
+    "link": "https://www.goodreads.com/review/show/2327963051?utm_medium=api&utm_source=rss",
+    "time": "2024-09-12T10:21:52Z",
+    "note": "author: Isaac Asimov \n                                      name: Carver \n                                      average rating: 4.20 \n                                      book published: 1972 \n                                      rating: 0 \n                                      read at: 2018/12/28 \n                                      date added: 2024/09/12 \n                                      shelves: 2-kindle, 1-pay \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "悲伤逆流成河",
+    "link": "https://www.goodreads.com/review/show/1118068605?utm_medium=api&utm_source=rss",
+    "time": "2024-02-24T15:20:45Z",
+    "note": "author: Guo Jingming \n                                      name: Carver \n                                      average rating: 2.98 \n                                      book published: 2007 \n                                      rating: 0 \n                                      read at: 2014/01/01 \n                                      date added: 2024/02/24 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "中国通史",
+    "link": "https://www.goodreads.com/review/show/1789380826?utm_medium=api&utm_source=rss",
+    "time": "2024-01-09T03:08:00Z",
+    "note": "author: Simian Lv \n                                      name: Carver \n                                      average rating: 4.28 \n                                      book published: 2010 \n                                      rating: 0 \n                                      read at: 2023/12/30 \n                                      date added: 2024/01/08 \n                                      shelves: 2-kindle, 1-pay \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "社交红利：如何从微信微博QQ空间等社交网络带走海量用户、流量与收入 (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/2327920651?utm_medium=api&utm_source=rss",
+    "time": "2023-12-14T01:09:06Z",
+    "note": "author: 徐志斌 \n                                      name: Carver \n                                      average rating: 3.50 \n                                      book published:  \n                                      rating: 0 \n                                      read at: 2013/01/01 \n                                      date added: 2023/12/13 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "寂静的春天 (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/1626951161?utm_medium=api&utm_source=rss",
+    "time": "2023-10-08T03:42:37Z",
+    "note": "author: Rachel Carson \n                                      name: Carver \n                                      average rating: 4.07 \n                                      book published: 1962 \n                                      rating: 0 \n                                      read at: 2016/07/11 \n                                      date added: 2023/10/07 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "A Message to Garcia-(New Revision) (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/1711594052?utm_medium=api&utm_source=rss",
+    "time": "2023-07-01T00:29:41Z",
+    "note": "author: MeiHa Bo DeHubbard.E. \n                                      name: Carver \n                                      average rating: 0.0 \n                                      book published:  \n                                      rating: 0 \n                                      read at: 2016/07/28 \n                                      date added: 2023/06/30 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "零售的哲學",
+    "link": "https://www.goodreads.com/review/show/1626950049?utm_medium=api&utm_source=rss",
+    "time": "2023-04-28T05:54:21Z",
+    "note": "author: 鈴木敏文 \n                                      name: Carver \n                                      average rating: 4.38 \n                                      book published: 2013 \n                                      rating: 0 \n                                      read at: 2016/06/08 \n                                      date added: 2023/04/27 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "失乐园",
+    "link": "https://www.goodreads.com/review/show/1694581076?utm_medium=api&utm_source=rss",
+    "time": "2023-01-09T06:36:42Z",
+    "note": "author: Jun'ichi Watanabe \n                                      name: Carver \n                                      average rating: 3.85 \n                                      book published: 1997 \n                                      rating: 0 \n                                      read at: 2017/01/01 \n                                      date added: 2023/01/08 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "文明、现代化、价值投资与中国(查理•芒格亲自作序！喜马拉雅资本创始人从文明现代化角度，解析中国未来的价值投资宝典) (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/5095945087?utm_medium=api&utm_source=rss",
+    "time": "2023-01-02T16:56:41Z",
+    "note": "author: 李录 \n                                      name: Carver \n                                      average rating: 4.33 \n                                      book published:  \n                                      rating: 0 \n                                      read at: 2022/12/30 \n                                      date added: 2023/01/02 \n                                      shelves: 0-buy \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "货币战争",
+    "link": "https://www.goodreads.com/review/show/1118070142?utm_medium=api&utm_source=rss",
+    "time": "2022-10-07T15:18:23Z",
+    "note": "author: 宋鸿兵 \n                                      name: Carver \n                                      average rating: 3.46 \n                                      book published: 2007 \n                                      rating: 0 \n                                      read at: 2013/01/01 \n                                      date added: 2022/10/07 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "成都今夜请将我遗忘",
+    "link": "https://www.goodreads.com/review/show/2327947422?utm_medium=api&utm_source=rss",
+    "time": "2022-05-27T14:01:36Z",
+    "note": "author: Murong Xuecun \n                                      name: Carver \n                                      average rating: 3.33 \n                                      book published: 2006 \n                                      rating: 0 \n                                      read at: 2010/01/01 \n                                      date added: 2022/05/27 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "旁观者：管理大师德鲁克回忆录",
+    "link": "https://www.goodreads.com/review/show/2327937436?utm_medium=api&utm_source=rss",
+    "time": "2021-12-03T07:07:32Z",
+    "note": "author: Peter F. Drucker \n                                      name: Carver \n                                      average rating: 4.60 \n                                      book published: 1979 \n                                      rating: 0 \n                                      read at: 2015/01/01 \n                                      date added: 2021/12/02 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "动物农场",
+    "link": "https://www.goodreads.com/review/show/1790112475?utm_medium=api&utm_source=rss",
+    "time": "2021-11-13T10:45:03Z",
+    "note": "author: George Orwell \n                                      name: Carver \n                                      average rating: 4.77 \n                                      book published: 1945 \n                                      rating: 0 \n                                      read at:  \n                                      date added: 2021/11/13 \n                                      shelves: 2-kindle, 1-pay \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "春风沉醉的晚上 (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/4335417290?utm_medium=api&utm_source=rss",
+    "time": "2021-11-13T10:14:40Z",
+    "note": "author: 郁達夫 \n                                      name: Carver \n                                      average rating: 4.31 \n                                      book published: 2012 \n                                      rating: 0 \n                                      read at: 2016/11/13 \n                                      date added: 2021/11/13 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "永恒的终结",
+    "link": "https://www.goodreads.com/review/show/1594888553?utm_medium=api&utm_source=rss",
+    "time": "2021-07-06T10:18:51Z",
+    "note": "author: Isaac Asimov \n                                      name: Carver \n                                      average rating: 4.46 \n                                      book published: 1955 \n                                      rating: 0 \n                                      read at: 2016/01/01 \n                                      date added: 2021/07/06 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "黑暗的左手",
+    "link": "https://www.goodreads.com/review/show/3670454310?utm_medium=api&utm_source=rss",
+    "time": "2021-05-31T04:45:14Z",
+    "note": "author: Ursula K. Le Guin \n                                      name: Carver \n                                      average rating: 4.80 \n                                      book published: 1969 \n                                      rating: 0 \n                                      read at: 2021/04/10 \n                                      date added: 2021/05/30 \n                                      shelves: 1-pay, 2-ebook \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "货币战争2：金权天下",
+    "link": "https://www.goodreads.com/review/show/1118061883?utm_medium=api&utm_source=rss",
+    "time": "2021-02-07T17:44:05Z",
+    "note": "author: 宋鸿兵 \n                                      name: Carver \n                                      average rating: 3.92 \n                                      book published:  \n                                      rating: 0 \n                                      read at: 2014/01/01 \n                                      date added: 2021/02/07 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "用户体验要素：以用户为中心的产品设计（原书第2版） (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/2327920965?utm_medium=api&utm_source=rss",
+    "time": "2021-01-30T01:49:28Z",
+    "note": "author: Jesse James Garrett \n                                      name: Carver \n                                      average rating: 3.75 \n                                      book published: 2002 \n                                      rating: 0 \n                                      read at: 2015/01/01 \n                                      date added: 2021/01/29 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "三重门",
+    "link": "https://www.goodreads.com/review/show/2327932482?utm_medium=api&utm_source=rss",
+    "time": "2020-10-23T11:00:10Z",
+    "note": "author: Han Han \n                                      name: Carver \n                                      average rating: 3.57 \n                                      book published: 2000 \n                                      rating: 0 \n                                      read at: 2008/01/01 \n                                      date added: 2020/10/23 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "钢铁是怎样炼成的",
+    "link": "https://www.goodreads.com/review/show/2327938119?utm_medium=api&utm_source=rss",
+    "time": "2020-10-04T11:37:05Z",
+    "note": "author: Nikolai Ostrovsky \n                                      name: Carver \n                                      average rating: 3.84 \n                                      book published: 1932 \n                                      rating: 0 \n                                      read at: 2005/01/01 \n                                      date added: 2020/10/04 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "腾讯方法：一个市值1500亿美元公司的产品真经 (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/1790105954?utm_medium=api&utm_source=rss",
+    "time": "2020-03-26T15:37:04Z",
+    "note": "author: 潘东燕 \n                                      name: Carver \n                                      average rating: 4.00 \n                                      book published:  \n                                      rating: 0 \n                                      read at: 2020/03/26 \n                                      date added: 2020/03/26 \n                                      shelves: 2-kindle, 1-pay \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "狼图腾",
+    "link": "https://www.goodreads.com/review/show/2327950597?utm_medium=api&utm_source=rss",
+    "time": "2020-02-10T06:29:48Z",
+    "note": "author: Jiang Rong \n                                      name: Carver \n                                      average rating: 4.16 \n                                      book published: 2004 \n                                      rating: 0 \n                                      read at: 2017/01/01 \n                                      date added: 2020/02/09 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "图解HTTP",
+    "link": "https://www.goodreads.com/review/show/2696622080?utm_medium=api&utm_source=rss",
+    "time": "2019-07-02T05:36:17Z",
+    "note": "author: 上野宣 \n                                      name: Carver \n                                      average rating: 4.11 \n                                      book published:  \n                                      rating: 0 \n                                      read at: 2019/07/02 \n                                      date added: 2019/07/01 \n                                      shelves: 2-kindle, 1-pay \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "摆渡人",
+    "link": "https://www.goodreads.com/review/show/1694582030?utm_medium=api&utm_source=rss",
+    "time": "2019-05-24T07:44:19Z",
+    "note": "author: Claire McFall \n                                      name: Carver \n                                      average rating: 3.70 \n                                      book published: 2013 \n                                      rating: 0 \n                                      read at: 2016/07/11 \n                                      date added: 2019/05/24 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "死神永生 (三体, #3)",
+    "link": "https://www.goodreads.com/review/show/1520419585?utm_medium=api&utm_source=rss",
+    "time": "2019-03-29T11:46:23Z",
+    "note": "author: Liu Cixin \n                                      name: Carver \n                                      average rating: 4.51 \n                                      book published: 2010 \n                                      rating: 0 \n                                      read at: 2016/01/01 \n                                      date added: 2019/03/29 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "\"创业时,我们在知乎聊什么?（完整图文版） (知乎系列)\" (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/1789392771?utm_medium=api&utm_source=rss",
+    "time": "2018-11-01T05:13:49Z",
+    "note": "author: 知乎 \n                                      name: Carver \n                                      average rating: 3.75 \n                                      book published: 2014 \n                                      rating: 0 \n                                      read at: 2018/10/31 \n                                      date added: 2018/10/31 \n                                      shelves: 2-kindle, 1-pay \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "那些滚雪球的人：中国投资者访谈录 (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/2327915873?utm_medium=api&utm_source=rss",
+    "time": "2018-11-01T05:09:59Z",
+    "note": "author: 王星 \n                                      name: Carver \n                                      average rating: 4.00 \n                                      book published: 2013 \n                                      rating: 0 \n                                      read at: 2014/01/01 \n                                      date added: 2018/10/31 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "Elemental (Soul Guardians, #2)",
+    "link": "https://www.goodreads.com/review/show/2327955630?utm_medium=api&utm_source=rss",
+    "time": "2018-11-01T05:09:33Z",
+    "note": "author: Kim  Richardson \n                                      name: Carver \n                                      average rating: 3.98 \n                                      book published: 2011 \n                                      rating: 0 \n                                      read at: 2010/01/01 \n                                      date added: 2018/10/31 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "平凡的世界（全三册）",
+    "link": "https://www.goodreads.com/review/show/1118064917?utm_medium=api&utm_source=rss",
+    "time": "2018-11-01T05:09:10Z",
+    "note": "author: Lu Yao \n                                      name: Carver \n                                      average rating: 4.46 \n                                      book published:  \n                                      rating: 0 \n                                      read at: 2010/01/01 \n                                      date added: 2018/10/31 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "Marked (Soul Guardians, #1)",
+    "link": "https://www.goodreads.com/review/show/2327955373?utm_medium=api&utm_source=rss",
+    "time": "2018-11-01T05:09:06Z",
+    "note": "author: Kim  Richardson \n                                      name: Carver \n                                      average rating: 3.67 \n                                      book published: 2011 \n                                      rating: 0 \n                                      read at: 2010/01/01 \n                                      date added: 2018/10/31 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "第一次的亲密接触",
+    "link": "https://www.goodreads.com/review/show/2327942978?utm_medium=api&utm_source=rss",
+    "time": "2018-11-01T05:09:01Z",
+    "note": "author: 蔡智恆 \n                                      name: Carver \n                                      average rating: 4.10 \n                                      book published: 1998 \n                                      rating: 0 \n                                      read at: 2010/01/01 \n                                      date added: 2018/10/31 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "产品经理的第二本书 (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/2327916843?utm_medium=api&utm_source=rss",
+    "time": "2018-11-01T05:08:56Z",
+    "note": "author: 琳达·哥乔斯 \n                                      name: Carver \n                                      average rating: 0.0 \n                                      book published: 2012 \n                                      rating: 0 \n                                      read at: 2014/01/01 \n                                      date added: 2018/10/31 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "人类性幻想 (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/2327918071?utm_medium=api&utm_source=rss",
+    "time": "2018-11-01T05:07:13Z",
+    "note": "author: B·卡尔 \n                                      name: Carver \n                                      average rating: 4.00 \n                                      book published: 2011 \n                                      rating: 0 \n                                      read at: 2014/01/01 \n                                      date added: 2018/10/31 \n                                      shelves:  \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "羊毛战记（套装） (Chinese Edition)",
+    "link": "https://www.goodreads.com/review/show/1789391745?utm_medium=api&utm_source=rss",
+    "time": "2018-11-01T05:06:42Z",
+    "note": "author: 休•豪伊 \n                                      name: Carver \n                                      average rating: 4.33 \n                                      book published: 2013 \n                                      rating: 0 \n                                      read at: 2014/01/01 \n                                      date added: 2018/10/31 \n                                      shelves: 2-kindle, 1-pay \n                                      review:"
+  },
+  {
+    "category": "📚 阅读",
+    "title": "Horizon (Soul Guardians, #3)",
+    "link": "https://www.goodreads.com/review/show/2327955843?utm_medium=api&utm_source=rss",
+    "time": "2018-11-01T05:06:38Z",
+    "note": "author: Kim  Richardson \n                                      name: Carver \n                                      average rating: 4.08 \n                                      book published: 2012 \n                                      rating: 0 \n                                      read at: 2014/01/01 \n                                      date added: 2018/10/31 \n                                      shelves:  \n                                      review:"
   }
 ]
