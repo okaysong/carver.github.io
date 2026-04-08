@@ -70,11 +70,10 @@ RSS_FEEDS = {
 
 for category, url in RSS_FEEDS.items():
     try:
-        # 🚀 突破反爬虫限制：用伪装成 Chrome 浏览器的 requests 去拿数据
+        # 🚀 突破反爬虫限制
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
         res = requests.get(url, headers=headers, timeout=15)
         
-        # 把拿到的安全内容喂给 feedparser
         feed = feedparser.parse(res.content)
         
         for entry in feed.entries[:5]:
@@ -94,10 +93,11 @@ for category, url in RSS_FEEDS.items():
             if fp in existing_fingerprints:
                 continue
 
-note_text = re.sub(r'<[^>]+>', ' ', raw_summary) 
+            # 👇 这里的缩进已经完美修复
+            note_text = re.sub(r'<[^>]+>', ' ', raw_summary) 
             note_text = re.sub(r'https?://[^\s]+', '', note_text).strip()
             
-            # 👇 新增魔法：强行把所有奇葩时间格式翻译成标准的 ISO 8601 格式
+            # 👇 时间翻译魔法
             parsed_time = entry.get('published_parsed') or entry.get('updated_parsed')
             if parsed_time:
                 final_time = datetime.datetime(*parsed_time[:6]).isoformat()
@@ -108,7 +108,7 @@ note_text = re.sub(r'<[^>]+>', ' ', raw_summary)
                 "category": category,
                 "title": title,
                 "link": item_link, 
-                "time": final_time, # 👈 使用翻译后的标准时间
+                "time": final_time,
                 "note": note_text
             })
             existing_fingerprints.add(fp)
