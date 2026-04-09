@@ -119,7 +119,7 @@ for category, url in RSS_FEEDS.items():
         print(f"❌ 抓取 {category} 失败，已跳过: {e}")
 
 # ==========================================
-# 3. Strava 高级 API 抓取模块
+# 3. Strava 高级 API 抓取模块 (开启终极调试模式)
 # ==========================================
 STRAVA_CLIENT_ID = os.environ.get('STRAVA_CLIENT_ID')
 STRAVA_CLIENT_SECRET = os.environ.get('STRAVA_CLIENT_SECRET')
@@ -127,7 +127,8 @@ STRAVA_REFRESH_TOKEN = os.environ.get('STRAVA_REFRESH_TOKEN')
 
 if STRAVA_CLIENT_ID and STRAVA_CLIENT_SECRET and STRAVA_REFRESH_TOKEN:
     try:
-        print("🏃‍♂️ 正在连接 Strava...")
+        print("🏃‍♂️ 正在连接 Strava (调试模式)...")
+        # 步骤 A：换取通行证
         auth_url = "https://www.strava.com/oauth/token"
         payload = {
             'client_id': STRAVA_CLIENT_ID,
@@ -136,40 +137,64 @@ if STRAVA_CLIENT_ID and STRAVA_CLIENT_SECRET and STRAVA_REFRESH_TOKEN:
             'grant_type': 'refresh_token'
         }
         res = requests.post(auth_url, data=payload)
+        
+        # 🚨 调试器 1号：看看换取 Token 是否成功
+        print(f"🔑 Token 换取状态码: {res.status_code}")
+        if res.status_code != 200:
+            print(f"🛑 Token 换取失败，Strava 说了啥: {res.text}")
+            raise Exception("Token 换取失败")
+
         access_token = res.json().get('access_token')
 
+        # 步骤 B：获取运动记录
         activities_url = "https://www.strava.com/api/v3/athlete/activities?per_page=5"
         headers = {'Authorization': f'Bearer {access_token}'}
         act_res = requests.get(activities_url, headers=headers)
+        
+        # 🚨 调试器 2号：看看拉取数据是否成功
+        print(f"📊 数据拉取状态码: {act_res.status_code}")
+        
+        # 关键的一步！先判断返回的是不是一个真正的列表
         activities = act_res.json()
+        if not isinstance(activities, list):
+            print(f"🛑 拉取数据格式不对，Strava 给的是: {act_res.text}")
+            raise Exception("拉取数据格式非列表")
 
+        # 接下来才是正常的处理逻辑
         for act in activities:
-            act_link = f"https://www.strava.com/activities/{act['id']}"
-            title = act['name']
-            sport_type = "🏃‍♂️ 跑步" if act['sport_type'] == 'Run' else ("🚴‍♂️ 骑行" if act['sport_type'] == 'Ride' else "⛰️ 徒步/健走")
+            act_link = f"https://www.strava.com/activities/{act.get('id', '')}"
+            title = act.get('name', '未知运动')
             
-            fp = f"{sport_type}_{title}_{act_link}"
+            # 安全地获取运动类型
+            sport_type = act.get('sport_type', '')
+            if sport_type == 'Run':
+                sport_label = "🏃‍♂️ 跑步"
+            elif sport_type == 'Ride':
+                sport_label = "🚴‍♂️ 骑行"
+            else:
+                sport_label = "⛰️ 徒步/健走"
+            
+            fp = f"{sport_label}_{title}_{act_link}"
             if fp in existing_fingerprints:
                 continue
 
-            distance_km = act['distance'] / 1000
-            moving_time_mins = act['moving_time'] // 60
+            distance_km = act.get('distance', 0) / 1000
+            moving_time_mins = act.get('moving_time', 0) // 60
             
             timeline.append({
-                "category": sport_type,
+                "category": sport_label,
                 "title": title,
                 "link": act_link,
-                "time": act['start_date'], # Strava 官方 API 已经自带 Z 了，无需修改
+                "time": act.get('start_date', datetime.datetime.utcnow().isoformat() + "Z"), 
                 "note": f"距离: {distance_km:.2f} km | 耗时: {moving_time_mins} 分钟"
             })
             existing_fingerprints.add(fp)
             new_items_count += 1
         print("✅ Strava 运动数据同步完成！")
     except Exception as e:
-        print(f"❌ 抓取 Strava 失败: {e}")
+        print(f"❌ 抓取 Strava 发生异常: {e}")
 else:
-    print("⚠️ 未找到 Strava 密钥，已跳过运动抓取。")
-
+    print("⚠️ 警告：未找到 Strava 的密钥 (Secrets 可能没配置好)，已跳过抓取。")
 # ==========================================
 # 4. 全局排序并保存档案
 # ==========================================
